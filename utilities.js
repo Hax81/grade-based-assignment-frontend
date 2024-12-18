@@ -6,6 +6,7 @@
  * alla ingredienser och measures som är null samt ett antal
  * attribut som ni inte kommer att han någon användning för.
  */
+
 export function mapRawCocktailData(rawCocktial) {
   return {
     id: rawCocktial.idDrink,

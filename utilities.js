@@ -7,20 +7,21 @@
  * attribut som ni inte kommer att han någon användning för.
  */
 
-export function mapRawCocktailData(rawCocktial) {
+export function mapRawCocktailData(rawCocktail) {
+  //Fixade stavfelen i funktionen.
   return {
-    id: rawCocktial.idDrink,
-    name: rawCocktial.strDrink,
-    tags: rawCocktial.strTags ? rawCocktial.strTags.split(",") : [],
-    category: rawCocktial.strCategory,
-    alcoholic: rawCocktial.strAlcoholic === "Alcoholic",
-    glass: rawCocktial.strGlass,
-    instructions: rawCocktial.strInstructions,
-    thumbnail: rawCocktial.strDrinkThumb,
+    id: rawCocktail.idDrink,
+    name: rawCocktail.strDrink,
+    tags: rawCocktail.strTags ? rawCocktail.strTags.split(",") : [],
+    category: rawCocktail.strCategory,
+    alcoholic: rawCocktail.strAlcoholic === "Alcoholic",
+    glass: rawCocktail.strGlass,
+    instructions: rawCocktail.strInstructions,
+    thumbnail: rawCocktail.strDrinkThumb,
     ingredients: Array.from({ length: 15 })
       .map((_, i) => ({
-        ingredient: rawCocktial[`strIngredient${i + 1}`],
-        measure: rawCocktial[`strMeasure${i + 1}`],
+        ingredient: rawCocktail[`strIngredient${i + 1}`],
+        measure: rawCocktail[`strMeasure${i + 1}`],
       }))
       .filter((item) => item.ingredient),
   };
